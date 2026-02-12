@@ -77,6 +77,31 @@ effect(() => {
 });
 ```
 
+### Functional APIs
+
+If functional programming is a little more your speed, this library comes with `signal` and `computed` functions that behave a little more like the [Angular Signals API](https://angular.dev/guide/signals)
+
+```typescript
+import { signal, computed } from "@figliolia/signals";
+
+const signal1 = signal(1);
+const signal2 = signal(1);
+
+const myComputed = computed(() => signal1() + signal2());
+
+// subscribe to changes
+const listener = myComputed.listen(currentValue => {
+  // on value change
+});
+
+// update the computed value
+signal1.set(2); // computed === 3
+signal2.set(2); // computed === 4
+
+// unsubscribe from changes
+listener();
+```
+
 ## The TC39 Proposal
 
 This implemenation differs from the TC39 proposal and is likely not going to mirror the native implemenation if the proposal passes.
