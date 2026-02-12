@@ -1,0 +1,46 @@
+{
+  "name": "@figliolia/signals",
+  "version": "1.0.0",
+  "description": "A signals implemenation loosely based on the TC39 Proposal",
+  "keywords": [
+    "javascript",
+    "signals",
+    "typescript"
+  ],
+  "license": "ISC",
+  "author": "Alex Figliolia",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint": "oxlint --type-aware --type-check --report-unused-disable-directives --fix && oxfmt"
+  },
+  "devDependencies": {
+    "@figliolia/event-emitter": "^1.2.0",
+    "@types/node": "^25.2.1",
+    "oxfmt": "^0.32.0",
+    "oxlint": "^1.36.0",
+    "oxlint-tsgolint": "^0.12.1",
+    "tsdown": "^0.20.3",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "@figliolia/event-emitter": "^1.2.0"
+  }
+}
