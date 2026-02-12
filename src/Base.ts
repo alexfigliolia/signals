@@ -5,7 +5,7 @@ import { Dependencies } from "./Dependencies";
 export class Base<T> {
   protected readonly ID: string;
   protected static readonly IDs = new AutoIncrementingID();
-  private readonly Emitter = new EventEmitter<{ change: T }>();
+  protected readonly Emitter = new EventEmitter<{ change: T }>();
   protected static CURRENT_COMPUTATION_ID: string | null = null;
   protected static COMPUTATION_DEPENDENCIES = new Dependencies();
   constructor(protected value: T) {

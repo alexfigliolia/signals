@@ -1,4 +1,4 @@
-import { computed, signal } from "./src";
+import { computed, effect, signal } from "./src";
 
 const signal1 = signal(1);
 const signal2 = signal(1);
@@ -19,7 +19,11 @@ const computed2 = computed(() => {
   return computed1();
 });
 
-computed2.listen(console.log);
+const destroy = effect(() => console.log(computed2()));
 
-signal1.set(1);
+// signal1.set(1);
 signal1.set(2);
+
+destroy();
+
+signal1.set(3);

@@ -72,9 +72,12 @@ const signal2 = new Signal(1);
 
 // Your effect callback will run on initialization and anytime
 // a signal inside changes values
-effect(() => {
+const destroy = effect(() => {
   console.log(signal1.get(), signal2.get());
 });
+
+// unregister your effect
+destroy();
 ```
 
 ### Functional APIs

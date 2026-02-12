@@ -5,7 +5,7 @@ import { Base } from "./Base";
 
 export class Computed<T> extends Base<T> {
   private trackingID: string;
-  private listeners = new Map<string, () => void>();
+  protected listeners = new Map<string, () => void>();
   private static readonly trackingIDs = new AutoIncrementingID();
   constructor(private readonly computer: Computer<T>) {
     const trackingID = Computed.trackingIDs.get();
@@ -33,8 +33,10 @@ export class Computed<T> extends Base<T> {
   }
 
   private set(value: T) {
-    this.value = value;
-    this.emit();
+    if (value !== this.value) {
+      this.value = value;
+      this.emit();
+    }
   }
 
   private recompute() {

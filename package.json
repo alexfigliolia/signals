@@ -1,6 +1,6 @@
 {
   "name": "@figliolia/signals",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "A signals implemenation loosely based on the TC39 Proposal",
   "keywords": [
     "javascript",
