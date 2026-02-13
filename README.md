@@ -6,6 +6,12 @@ The implementation borrows some of the API from [Angular Signals](https://angula
 
 To accomplish the portability aspect, changed values are piped through an event emitter that can be consumed anywhere in your code without needing `effects` or static analysis. This will allow you to easily build abstractions or frameworks on top of the API.
 
+## Installation
+
+```bash
+npm i @figliolia/signals
+```
+
 ## API
 
 ### Signals
